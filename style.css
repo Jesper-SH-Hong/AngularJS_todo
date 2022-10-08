@@ -1,0 +1,10 @@
+/* DOM element인 form에 무언가 입력 시 발생되는 클래스를 통해서 */
+
+
+.input-group .ng-valid .ng-dirty {
+    border: solid 3px green;    
+}
+
+.input-group .ng-invalid .ng-dirty {
+    border: solid 3px red;
+}

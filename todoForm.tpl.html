@@ -1,0 +1,16 @@
+<div class="input-group">
+    <form name="todoForm" ng-submit="add(newTodoTitle)">
+        <input type="text" ng-model="newTodoTitle" placeholder="Insert new Todo" minlength="3">
+        <button type="submit">ADD!</button>
+</div>
+
+
+<!-- ng-show 디렉티브: 조건식이 false면 이 영역은 표시 안됨. true시에만 표시됨 -->
+<div ng-show="todoForm.$dirty && todoForm.$invalid">
+
+    <!-- minlen보다 작으면 alert해줘야겄다. -->
+
+    <div class="alert alert-warning" role="alert">yellow alert. 3글자
+    </div>
+</div>
+</form>

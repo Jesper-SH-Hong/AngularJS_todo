@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script data-require="angular.js@1.5.7" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"
+    data-semver="1.5.7"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="style.css" />
+<!-- <script src="script8_sep_directive.js"></script> -->
+<script src="app.js"></script>
+<script src="directives.js"></script>
+<script src="controllers.js"></script>
+</head>
+
+<body ng-app="todo" ng-controller="TodoCtrl">
+
+    <div class="container">
+
+        <todo-title></todo-title>
+
+        <todo-form></todo-form>
+
+
+        <!-- <pre>{{todoForm | json}} </pre> -->
+
+
+        <ul class="list-unstyled">
+            <li ng-repeat="todo in todos | filter: statusFilter">
+
+                <todo-item></todo-item>
+
+
+            </li>
+        </ul>
+
+
+        <todo-filters></todo-filters>
+
+    </div>
+
+
+
+</body>
+
+</html>
