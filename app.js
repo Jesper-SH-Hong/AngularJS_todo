@@ -7,7 +7,11 @@
 //browser's WINDOWs object에 추가됨.
 //전역변수가 오염됨.. 그래서 todo란 모듈을 선언만 함.
 
+
+
 angular.module('todo', []);
+
+
 
 //todo라는 angular 모듈을 정의함
 //controllers.js에서는 ctrler들 정의. TodoCtrl만 정의됐음

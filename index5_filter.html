@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script data-require="angular.js@1.5.7" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"
+    data-semver="1.5.7"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="style.css" />
+<script src="script.js"></script>
+</head>
+
+
+<body ng-app="todo" ng-controller="TodoCtrl">
+
+    <div class="container">
+
+    <h1>Todo list</h1>
+<!-- Angular는 폼 네임 지정 가능. 콘트롤러의 스코프 변수에 할당됨-->
+<!-- 지금 TodoCTRL Controller의 스코프 변수 내에 todoForm이란 또다른 변수를 사용 가능하단 거임 ㅎㅎ -->
+<!-- ng-submit directive가 있음. 이걸 내가 만들 add()라는 함수와 바인딩해보자 -->
+    <form name= "todoForm" ng-submit="add(newTodoTitle)"> 
+        <!-- newTodoTitle이란 개체와 이 인풋 필드를 바인딩 -->
+        <input type="text" ng-model="newTodoTitle" placeholder="Insert new Todo" autofocus>
+        <button type="submit">ADD!</button>
+    </form>
+
+    
+
+
+
+
+
+
+
+    <ul class="list-unstyled">
+        <!-- 필터 적용할 부분이라 여기도 파이프라인 표시. filters: {completed:true} 해도 되지만 statusFilter라는 변수를 만듬 -->
+        <li ng-repeat="todo in todos | filter: statusFilter">  
+            <div class="input-group mb-3">
+                <div class="input-group-text">
+                    <input class="form-check-input mt-0" type="checkbox" ng-model="todo.completed">
+                </div>
+                <input type="text" class="form-control" ng-model="todo.title">
+
+                <!-- bttn -->
+                <span class="input-group-btn">
+                    <!-- bttn 디렉티브에 핸들러 추가. remove()라는 함수 -->
+                    <!-- todoCtrl하에서 작동하는 부분이므로 TodoCtrl에 .remove()를 정의하면 됨. 
+                    todo라는 개체를 넘길 거임 ㅎㅎ 3개의 todo중 해당되는 그놈 날릴 거라.-->
+                    <button class="btn btn-danger" type="button" ng-click="remove(todo)">Delete!</button>
+                </span>
+            </div>
+
+            <date>{{todo.created | date: 'yyyy-MM-dd HH:mm:ss'}}</date> 
+        </li>
+    </ul>
+
+    <button class = "btn btn-primary" ng-click="statusFilter={completed:true}">Done</button>
+    <button class = "btn btn-primary" ng-click="statusFilter={completed:false}">Active</button>
+    <button class = "btn btn-primary" ng-click="statusFilter={}">Show All</button>
+    
+</div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script data-require="angular.js@1.5.7" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"
+    data-semver="1.5.7"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="style.css" />
+<script src="script.js"></script>
+</head>
+
+
+<body ng-app="todo" ng-controller="TodoCtrl">
+
+
+    <ul class="list-unstyled">
+        <li ng-repeat="todo in todos">
+            <div class="input-group mb-3">
+                <div class="input-group-text">
+                    <input class="form-check-input mt-0" type="checkbox" ng-model="todo.completed">
+                </div>
+                <input type="text" class="form-control" ng-model="todo.title">
+
+                <!-- bttn -->
+                <span class="input-group-btn">
+                    <!-- bttn 디렉티브에 핸들러 추가. remove()라는 함수 -->
+                    <!-- todoCtrl하에서 작동하는 부분이므로 TodoCtrl에 .remove()를 정의하면 됨. 
+                    todo라는 개체를 넘길 거임 ㅎㅎ 3개의 todo중 해당되는 그놈 날릴 거라.-->
+                    <button class="btn btn-danger" type="button" ng-click="remove(todo)">Delete!</button>
+                </span>
+            </div>
+
+            <date>{{todo.created | date: 'yyyy-MM-dd HH:mm:ss'}}</date> 
+        </li>
+    </ul>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <script data-require="angular.js@1.5.7" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"
+        data-semver="1.5.7"></script>
+        
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+</head>
+
+
+
+<!-- <body ng-app ng-init="name = 'Jesper'"> -->
+<body ng-app="todo" ng-controller="TodoCtrl">
+    <h1>Hello {{ name }}</h1>
+
+    {{todo}}
+
+    <h3> {{todo.title}}</h3>
+    <input type="text" ng-model="todo.title">  
+    <!-- ng-model 디렉티브로 todo.title을 텍스트 인풋 필드와 연결 -->
+    <!-- app 모듈 'TodoCtrl' 컨트롤러 내의 .todo 변수 내의 title키값 밸류를 ng-model이란 디렉티브에 의해서 binding되어 출력-->
+
+    <input type="checkbox" ng-model="todo.completed">
+    <!-- 즉 ng-model은 todo.completed라는 js 변수와 바인딩 되어 그 값을 출력해줌 -->
+    <!-- 역으로 체크박스의 값이 변경되면 js 변수에 반영됨. 그래서 ng-model을 양방향 바인딩이라 함. -->
+
+    <date>{{todo.created}}</date>
+
+
+    <!-- <p>{{ todo.completed }} </p>
+    <date> {{ todo.created }}</date> -->
+
+
+    //이상 todo 오브젝트의 출력이었다.
+
+
+
+</body>
+
+</html>
